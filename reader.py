@@ -1,18 +1,15 @@
 import winreg
+from constants import RYZEN_REGISTRY
+from utilities import match_override
 
-location = winreg.HKEY_LOCAL_MACHINE
-permissions = winreg.KEY_READ
+query = winreg.QueryInfoKey(RYZEN_REGISTRY)
+print(query) #info readout of RYZEN_REGISTRY
 
-try:
-    ryzen_registry = winreg.OpenKeyEx(location, r"SYSTEM\\CurrentControlSet\\Services\\amd3dvcache\\Preferences\\App\\League of Legends", access=permissions)
-except Exception as err:
-    print(f"An error occurred while trying to open the specified registry key: {err}")
-query = winreg.QueryInfoKey(ryzen_registry)
-print(query)
+application, _= winreg.QueryValueEx(RYZEN_REGISTRY, "EndsWith")
+override, _ = winreg.QueryValueEx(RYZEN_REGISTRY, "Type")
+override = match_override(override)
 
-value_1 = winreg.QueryValueEx(ryzen_registry, "EndsWith")
+if RYZEN_REGISTRY:
+    winreg.CloseKey(RYZEN_REGISTRY)
 
-if ryzen_registry:
-    winreg.CloseKey(ryzen_registry)
-
-print(f"The application with override is: {value_1}")
+print(f"The application with override is: {application}\nIts override is set to: {override}")

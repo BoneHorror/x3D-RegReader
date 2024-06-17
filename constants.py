@@ -19,11 +19,14 @@ class log_color:
         self.green = "\033[0;32m"
         self.clear = "\033[0;0m"
 #UI buttons
-TITLE_WINDOW = "3xD RegReader"
+TITLE_WINDOW = "x3D RegReader"
 TITLE_HEADER = "vcache Optimizer Registry Entries"
 TITLE_MODE0 = "Frequency"
-TITLE_MODE1 = "3D Cache"
+TOOLTIP_MODE0 = "This application will try to exclusively use CCD1 frequency cores"
+TITLE_MODE1 = "x3D Cache"
+TOOLTIP_MODE1 = "This application will try to exclusively use CCD0 cores with extra v-cache"
 BUTTON_MODE = "Toggle mode"
 BUTTON_ADD = "Add application"
-BUTTON_RMV = "Remove application"
+BUTTON_RMV = "Remove"
+TOOLTIP_RMV = "Remove this preference override from registry"
 #Support for power mode overrides?

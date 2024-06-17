@@ -37,7 +37,7 @@ def get_subkeys(key): #get all folders with specific games... as list?
         log_print(err, color.red, 0)
     return key_list
 
-example = r"\\League of Legends"
+example = r"\\Path of Exile"
 regentry = app_values(example, close=False)
 baseentry = open_reg_entry()
 list = get_subkeys(baseentry)
